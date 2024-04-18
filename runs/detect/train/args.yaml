@@ -2,7 +2,7 @@ task: detect
 mode: train
 model: yolov8n.pt
 data: ./data.yaml
-epochs: 1
+epochs: 10
 time: null
 patience: 100
 batch: 16
@@ -13,7 +13,7 @@ cache: false
 device: cuda:0
 workers: 8
 project: null
-name: train2
+name: train
 exist_ok: false
 pretrained: true
 optimizer: auto
@@ -103,4 +103,4 @@ erasing: 0.4
 crop_fraction: 1.0
 cfg: null
 tracker: botsort.yaml
-save_dir: /home/bersi/Documents/Academic_Stuff/MCV-DataContest/runs/detect/train2
+save_dir: /home/bersi/Documents/Academic_Stuff/MCV-DataContest/runs/detect/train
