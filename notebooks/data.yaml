@@ -1,0 +1,13 @@
+# Train/test sets
+path: ./data
+train: images/train
+val: images/val
+test: # (optional)
+
+names:
+  0: aegypti
+  1: albopictus
+  2: anopheles
+  3: culex
+  4: culiseta
+  5: japonicus/koreicus
