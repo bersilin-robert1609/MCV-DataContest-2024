@@ -105,24 +105,36 @@ eps = 1e-3   # for J image
 
 import os
 
-IMG_FOLDERS = ["../data/images/train", "../data/images/test", "../data/images/val"]
-DEST_FOLDERS = ["../data_1/images/train_dehazed", "../data_1/images/test_dehazed", "../data_1/images/val_dehazed"]
-DEST_2_FOLDERS = ["../data_2/images/train_dehazed2", "../data_2/images/test_dehazed2", "../data_2/images/val_dehazed2"]
+IMG_FOLDERS = ["../data/images/train"]  
+# IMG_FOLDERS = ["../data/images/test", "../data/images/val"] 
+# DEST_FOLDERS = ["../data_1/images/train_dehazed", "../data_1/images/test_dehazed", "../data_1/images/val_dehazed"]
+DEST_2_FOLDERS = ["../data_2/images/train_dehazed2"] 
+# DEST_2_FOLDERS = [ "../data_2/images/test_dehazed2", "../data_2/images/val_dehazed2"] 
 
 # make destination folders
 
 import time
 
-for i in range(len(DEST_FOLDERS)):
-    if not os.path.exists(DEST_FOLDERS[i]):
-        os.makedirs(DEST_FOLDERS[i])
+for i in range(len(DEST_2_FOLDERS)):
+    # if not os.path.exists(DEST_FOLDERS[i]):
+    #     os.makedirs(DEST_FOLDERS[i])
     if not os.path.exists(DEST_2_FOLDERS[i]):
         os.makedirs(DEST_2_FOLDERS[i])
+        
+waste_set = ["3ad04319-5354-4f3a-b500-8326c817c77b.jpeg", "f6a4a427-9693-4c34-93a8-bc80ba2b2151.jpeg", "82e3d549-4057-4c6a-81b5-2658d5c25813.jpeg", "88322450-73c2-42e1-9ace-ee735207f02a.jpeg", "48a649f4-ca5c-499d-9183-f2b25b60deee.jpeg", "b4f94edf-f02e-420a-b435-638f6efcf6e9.jpeg"]
 
 for i in range(len(IMG_FOLDERS)):
     imgs = os.listdir(IMG_FOLDERS[i])
     
     for img in imgs:
+        
+        if(os.path.exists(os.path.join(DEST_2_FOLDERS[i], img))):
+            print("Image: ", img, "already exists in folder: ", DEST_2_FOLDERS[i])
+            continue
+        
+        if img in waste_set:
+            continue            
+            
         start_time = time.time()
         print("Working on image: ", img, "from folder: ", IMG_FOLDERS[i])
         
@@ -131,22 +143,20 @@ for i in range(len(IMG_FOLDERS)):
         
         I = I[:, :, :3] / 255
         
-        f_enhanced = dehaze(I, tmin, w, alpha, omega, p, eps)
+        # f_enhanced = dehaze(I, tmin, w, alpha, omega, p, eps)
         
-        time_2 = time.time()
+        # time_2 = time.time()
         
-        print("Time taken for 1 image: ", img, "is: ", time_2 - start_time)
+        # print("Time taken for 1 image: ", img, "is: ", time_2 - start_time)
         
         f_enhanced2 = dehaze(I, tmin, w, alpha, omega, p, eps, True)
         
-        print("Saving dehazed image: ", img, "to folder: ", DEST_FOLDERS[i])
+        # print("Saving dehazed image: ", img, "to folder: ", DEST_FOLDERS[i])
         
-        cv2.imwrite(os.path.join(DEST_FOLDERS[i], img), f_enhanced)
+        # cv2.imwrite(os.path.join(DEST_FOLDERS[i], img), f_enhanced)
         cv2.imwrite(os.path.join(DEST_2_FOLDERS[i], img), f_enhanced2)
         
         end_time = time.time()
         
         print("Time taken for image: ", img, "is: ", end_time - start_time)        
-        break
     
-    break
