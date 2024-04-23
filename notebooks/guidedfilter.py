@@ -84,6 +84,7 @@ def guided_filter(I, p, r=15, eps=1e-3):
         var[i][j] = boxfilter(I[:, :, i]*I[:, :, j], r) / base - means[i]*means[j]
 
     a = np.zeros((M, N, 3))
+    
     for y, x in np.ndindex(M, N):
         #         rr, rg, rb
         # Sigma = rg, gg, gb
