@@ -105,11 +105,11 @@ eps = 1e-3   # for J image
 
 import os
 
-# IMG_FOLDERS = ["../data/images/train"]  
-IMG_FOLDERS = ["../data/images/test", "../data/images/val"] 
+IMG_FOLDERS = ["../data/images/train"]  
+# IMG_FOLDERS = ["../data/images/test", "../data/images/val"] 
 # DEST_FOLDERS = ["../data_1/images/train_dehazed", "../data_1/images/test_dehazed", "../data_1/images/val_dehazed"]
-# DEST_2_FOLDERS = ["../data_2/images/train_dehazed2"] 
-DEST_2_FOLDERS = [ "../data_2/images/test_dehazed2", "../data_2/images/val_dehazed2"] 
+DEST_2_FOLDERS = ["../data_2/images/train_dehazed2"] 
+# DEST_2_FOLDERS = [ "../data_2/images/test_dehazed2", "../data_2/images/val_dehazed2"] 
 
 # make destination folders
 

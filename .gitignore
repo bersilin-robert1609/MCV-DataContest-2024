@@ -4,3 +4,6 @@ trained/
 data_2/
 data_3/
 bounding_box/
+__pycache__/
+Object-detection-using-Faster-RCNN
+data_4/
