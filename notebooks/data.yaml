@@ -2,7 +2,7 @@
 path: ./data_4
 train: images/train
 val: images/val
-test: # (optional)
+test: # optional
 
 names:
   0: aegypti

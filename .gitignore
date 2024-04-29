@@ -7,3 +7,4 @@ bounding_box/
 __pycache__/
 Object-detection-using-Faster-RCNN
 data_4/
+data_rcnn/
