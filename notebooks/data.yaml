@@ -1,5 +1,5 @@
 # Train/test sets
-path: ./data_4
+path: ./data_3
 train: images/train
 val: images/val
 test: # optional
